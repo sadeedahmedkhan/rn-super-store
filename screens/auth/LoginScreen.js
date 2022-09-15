@@ -1,12 +1,33 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Input, Button, Divider } from '@rneui/base';
+import { Input, Button, Image } from '@rneui/base';
 
 const LoginScreen = (props) => {
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Welcome to Super Store</Text>
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: 20,
+          maxHeight: 100,
+          // backgroundColor: 'blue',
+        }}
+      >
+        <Image
+          source={require('../../assets/Icon.png')}
+          containerStyle={{
+            aspectRatio: 1,
+            width: '100%',
+            height: 73,
+            alignSelf: 'center',
+            // backgroundColor: 'green',
+          }}
+        />
+      </View>
+      <View style={{ alignItems: 'center' }}>
+        <Text style={{ fontWeight: 'bold' }}>Welcome to Super Store</Text>
         <Text>Sign in to continue</Text>
       </View>
       <View style={{ width: '100%', marginTop: 20 }}>
@@ -24,7 +45,10 @@ const LoginScreen = (props) => {
           <Button
             title='Sign In'
             onPress={() => {}}
-            containerStyle={{ width: '86%', borderRadius: 5 }}
+            containerStyle={{
+              width: '86%',
+              borderRadius: 5,
+            }}
             buttonStyle={{ paddingVertical: 10, backgroundColor: '#40BFFF' }}
           />
         </View>
@@ -77,7 +101,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   inputContainer: {
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: 'lightgrey',
     width: '90%',
     alignSelf: 'center',
