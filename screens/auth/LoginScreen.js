@@ -16,7 +16,7 @@ const LoginScreen = (props) => {
         }}
       >
         <Image
-          source={require('../../assets/Icon.png')}
+          source={require('../../assets/icon.png')}
           containerStyle={{
             aspectRatio: 1,
             width: '100%',
@@ -27,17 +27,19 @@ const LoginScreen = (props) => {
         />
       </View>
       <View style={{ alignItems: 'center' }}>
-        <Text style={{ fontWeight: 'bold' }}>Welcome to Super Store</Text>
-        <Text>Sign in to continue</Text>
+        <Text style={styles.headingText}>Welcome to Super Store</Text>
+        <Text style={styles.bodyText}>Sign in to continue</Text>
       </View>
       <View style={{ width: '100%', marginTop: 20 }}>
         <Input
           placeholder='Your Email'
+          inputStyle={styles.bodyText}
           inputContainerStyle={styles.inputContainer}
           leftIcon={{ type: 'ant-design', name: 'mail', color: 'grey' }}
         />
         <Input
           placeholder='Password'
+          inputStyle={styles.bodyText}
           inputContainerStyle={styles.inputContainer}
           leftIcon={{ type: 'feather', name: 'lock', color: 'grey' }}
         />
@@ -49,7 +51,8 @@ const LoginScreen = (props) => {
               width: '86%',
               borderRadius: 5,
             }}
-            buttonStyle={{ paddingVertical: 10, backgroundColor: '#40BFFF' }}
+            titleStyle={styles.buttonText}
+            buttonStyle={{ paddingVertical: 15, backgroundColor: '#40BFFF' }}
           />
         </View>
       </View>
@@ -63,13 +66,14 @@ const LoginScreen = (props) => {
         }}
       >
         <View style={styles.divider} />
-        <Text>OR</Text>
+        <Text style={styles.buttonText}>OR</Text>
         <View style={styles.divider} />
       </View>
       <View style={{ width: '100%', alignItems: 'center' }}>
         <View style={{ marginVertical: 5, width: '90%' }}>
           <Button
             title={'Login with Google'}
+            titleStyle={styles.buttonText}
             type='outline'
             icon={{
               type: 'ant-design',
@@ -81,6 +85,7 @@ const LoginScreen = (props) => {
         <View style={{ marginVertical: 5, width: '90%' }}>
           <Button
             title={'Login with Facebook'}
+            titleStyle={styles.buttonText}
             type='outline'
             icon={{ type: 'font-awesome', name: 'facebook', color: 'blue' }}
           />
@@ -109,6 +114,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   divider: { width: '40%', borderTopColor: 'lightgrey', borderTopWidth: 1 },
+  headingText: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 16,
+  },
+  bodyText: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: 12,
+  },
+  buttonText: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 14,
+  },
 });
 
 export default LoginScreen;
