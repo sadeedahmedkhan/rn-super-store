@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Input, Button, Image, Icon } from '@rneui/base';
 import COLORS from '../../constants/colors';
+import InputField from '../../components/InputField';
+import ButtonPrimary from '../../components/ButtonPrimary';
 
 const LoginScreen = (props) => {
   return (
@@ -13,7 +15,6 @@ const LoginScreen = (props) => {
           justifyContent: 'center',
           marginTop: 20,
           maxHeight: 100,
-          // backgroundColor: 'blue',
         }}
       >
         <Image
@@ -23,7 +24,6 @@ const LoginScreen = (props) => {
             width: '100%',
             height: 73,
             alignSelf: 'center',
-            // backgroundColor: 'green',
           }}
         />
       </View>
@@ -34,34 +34,27 @@ const LoginScreen = (props) => {
         </Text>
       </View>
       <View style={{ width: '100%', marginTop: 20 }}>
-        <Input
-          placeholder='Your Email'
-          inputStyle={[styles.bodyText, { paddingLeft: 10 }]}
-          inputContainerStyle={[styles.inputContainer, { marginBottom: -9 }]}
+        <InputField
+          placeholderText='Your Email'
           leftIcon={{
             type: 'ant-design',
             name: 'mail',
-            color: 'grey',
+            color: COLORS.grey,
+            size: 18,
+          }}
+          containerStyle={{ marginBottom: -9 }}
+        />
+        <InputField
+          placeholderText='Password'
+          leftIcon={{
+            type: 'feather',
+            name: 'lock',
+            color: COLORS.grey,
             size: 18,
           }}
         />
-        <Input
-          placeholder='Password'
-          inputStyle={[styles.bodyText, { paddingLeft: 10 }]}
-          inputContainerStyle={styles.inputContainer}
-          leftIcon={{ type: 'feather', name: 'lock', color: 'grey', size: 18 }}
-        />
-        <View style={{ alignItems: 'center' }}>
-          <Button
-            title='Sign In'
-            onPress={() => {}}
-            containerStyle={{
-              width: '86%',
-              borderRadius: 5,
-            }}
-            titleStyle={styles.buttonTextSolid}
-            buttonStyle={{ paddingVertical: 15, backgroundColor: COLORS.blue }}
-          />
+        <View style={{ alignItems: 'center', width: '100%' }}>
+          <ButtonPrimary title='Sign In' onPressHandler={() => {}} />
         </View>
       </View>
       <View
