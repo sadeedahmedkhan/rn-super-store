@@ -13,7 +13,7 @@ const HomeFeed = (props) => {
         <View style={styles.header}>
           <View
             style={{
-              width: '70%',
+              width: '75%',
               marginBottom: -10,
               marginTop: 15,
               // backgroundColor: 'red',
@@ -31,7 +31,7 @@ const HomeFeed = (props) => {
           </View>
           <View
             style={{
-              width: '30%',
+              width: '25%',
               flexDirection: 'row',
               justifyContent: 'flex-start',
             }}
@@ -54,7 +54,12 @@ const HomeFeed = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text>Feed</Text>
+      <Button
+        title={'go to sale'}
+        onPress={() => {
+          props.navigation.navigate('sale');
+        }}
+      />
     </View>
   );
 };
