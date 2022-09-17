@@ -6,6 +6,8 @@ import InputField from '../../components/InputField';
 import ButtonPrimary from '../../components/ButtonPrimary';
 
 const LoginScreen = (props) => {
+  const { navigation } = props;
+
   return (
     <View style={styles.container}>
       <View
@@ -33,28 +35,35 @@ const LoginScreen = (props) => {
           Sign in to continue
         </Text>
       </View>
-      <View style={{ width: '100%', marginTop: 20 }}>
-        <InputField
-          placeholderText='Your Email'
-          leftIcon={{
-            type: 'ant-design',
-            name: 'mail',
-            color: COLORS.grey,
-            size: 18,
-          }}
-          containerStyle={{ marginBottom: -9 }}
-        />
-        <InputField
-          placeholderText='Password'
-          leftIcon={{
-            type: 'feather',
-            name: 'lock',
-            color: COLORS.grey,
-            size: 18,
-          }}
-        />
+      <View style={{ width: '100%', marginTop: 20, alignItems: 'center' }}>
+        <View style={{ width: '90%' }}>
+          <InputField
+            placeholderText='Your Email'
+            leftIcon={{
+              type: 'ant-design',
+              name: 'mail',
+              color: COLORS.grey,
+              size: 18,
+            }}
+            containerStyle={{ marginBottom: -9 }}
+          />
+          <InputField
+            placeholderText='Password'
+            leftIcon={{
+              type: 'feather',
+              name: 'lock',
+              color: COLORS.grey,
+              size: 18,
+            }}
+          />
+        </View>
         <View style={{ alignItems: 'center', width: '100%' }}>
-          <ButtonPrimary title='Sign In' onPressHandler={() => {}} />
+          <ButtonPrimary
+            title='Sign In'
+            onPressHandler={() => {
+              navigation.navigate('homeFeed');
+            }}
+          />
         </View>
       </View>
       <View
@@ -102,6 +111,9 @@ const LoginScreen = (props) => {
               </View>
             }
             buttonStyle={{ borderColor: COLORS.light }}
+            onPress={() => {
+              navigation.navigate('homeFeed');
+            }}
           />
         </View>
         <View style={{ marginVertical: 5, width: '90%' }}>
@@ -137,14 +149,22 @@ const LoginScreen = (props) => {
               </View>
             }
             buttonStyle={{ borderColor: COLORS.light }}
+            onPress={() => {
+              navigation.navigate('homeFeed');
+            }}
           />
         </View>
       </View>
       <View style={{ alignItems: 'center', marginTop: 20 }}>
         <Text style={styles.linkText}>Forgot Password?</Text>
         <View style={{ flexDirection: 'row' }}>
-          <Text style={styles.bodyText}>Dont have an account?</Text>
-          <Text style={styles.linkText}>Register</Text>
+          <Text style={styles.bodyText}>Dont have an account? </Text>
+          <Text
+            style={styles.linkText}
+            onPress={() => navigation.navigate('registerScreen')}
+          >
+            Register
+          </Text>
         </View>
       </View>
     </View>

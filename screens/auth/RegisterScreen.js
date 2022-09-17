@@ -6,6 +6,8 @@ import InputField from '../../components/InputField';
 import ButtonPrimary from '../../components/ButtonPrimary';
 
 const RegisterScreen = (props) => {
+  const { navigation } = props;
+
   return (
     <View style={styles.container}>
       <View
@@ -33,55 +35,67 @@ const RegisterScreen = (props) => {
           Create a new account
         </Text>
       </View>
-      <View style={{ width: '100%', marginTop: 20 }}>
-        <InputField
-          placeholderText='Full Name'
-          leftIcon={{
-            type: 'ant-design',
-            name: 'user',
-            color: COLORS.grey,
-            size: 18,
-          }}
-          containerStyle={{ marginBottom: -9 }}
-        />
-        <InputField
-          placeholderText='Your Email'
-          leftIcon={{
-            type: 'ant-design',
-            name: 'mail',
-            color: COLORS.grey,
-            size: 18,
-          }}
-          containerStyle={{ marginBottom: -9 }}
-        />
-        <InputField
-          placeholderText='Password'
-          leftIcon={{
-            type: 'feather',
-            name: 'lock',
-            color: COLORS.grey,
-            size: 18,
-          }}
-          containerStyle={{ marginBottom: -9 }}
-        />
-        <InputField
-          placeholderText='Password Again'
-          leftIcon={{
-            type: 'feather',
-            name: 'lock',
-            color: COLORS.grey,
-            size: 18,
-          }}
-        />
+      <View style={{ width: '100%', marginTop: 20, alignItems: 'center' }}>
+        <View style={{ width: '90%' }}>
+          <InputField
+            placeholderText='Full Name'
+            leftIcon={{
+              type: 'ant-design',
+              name: 'user',
+              color: COLORS.grey,
+              size: 18,
+            }}
+            containerStyle={{ marginBottom: -9 }}
+          />
+          <InputField
+            placeholderText='Your Email'
+            leftIcon={{
+              type: 'ant-design',
+              name: 'mail',
+              color: COLORS.grey,
+              size: 18,
+            }}
+            containerStyle={{ marginBottom: -9 }}
+          />
+          <InputField
+            placeholderText='Password'
+            leftIcon={{
+              type: 'feather',
+              name: 'lock',
+              color: COLORS.grey,
+              size: 18,
+            }}
+            containerStyle={{ marginBottom: -9 }}
+          />
+          <InputField
+            placeholderText='Password Again'
+            leftIcon={{
+              type: 'feather',
+              name: 'lock',
+              color: COLORS.grey,
+              size: 18,
+            }}
+          />
+        </View>
         <View style={{ alignItems: 'center', width: '100%' }}>
-          <ButtonPrimary title='Sign Up' onPressHandler={() => {}} />
+          <ButtonPrimary
+            title='Sign Up'
+            onPressHandler={() => {
+              navigation.navigate('homeFeed');
+            }}
+          />
         </View>
       </View>
 
       <View style={{ alignItems: 'center', marginTop: 20 }}>
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.bodyText}>Already have an account? </Text>
-          <Text style={styles.linkText}>Sign In</Text>
+          <Text
+            style={styles.linkText}
+            onPress={() => navigation.navigate('loginScreen')}
+          >
+            Sign In
+          </Text>
         </View>
       </View>
     </View>

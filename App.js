@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import LoginScreen from './screens/auth/LoginScreen';
-import RegisterScreen from './screens/auth/RegisterScreen';
+import Navigation from './navigation/Navigation';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -32,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <RegisterScreen />
+      <Navigation />
       <StatusBar style='auto' />
     </>
   );
