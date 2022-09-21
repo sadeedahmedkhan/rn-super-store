@@ -25,6 +25,34 @@ const images = [
   },
 ];
 
+const CATEGORIES = [
+  {
+    desc: 'Man Shirt',
+    iconName: 'shirt-outline',
+    iconType: 'ionicon',
+  },
+  {
+    desc: 'Dress',
+    iconName: 'swimsuit',
+    iconType: 'fontisto',
+  },
+  {
+    desc: 'Man Work Equipment',
+    iconName: 'tool',
+    iconType: 'ant-design',
+  },
+  {
+    desc: 'Woman Bag',
+    iconName: 'handbag',
+    iconType: 'simple-line-icon',
+  },
+  {
+    desc: 'Man Shoes',
+    iconName: 'shoe-formal',
+    iconType: 'material-community',
+  },
+];
+
 const HomeFeed = (props) => {
   const { navigation } = props;
 
@@ -94,43 +122,100 @@ const HomeFeed = (props) => {
           loop={false}
           autoscroll={false}
           indicatorActiveColor={COLORS.blue}
-          indicatorInActiveColor={COLORS.grey}
+          indicatorInActiveColor={COLORS.light}
         />
-
-        {/* <FlatList
-          data={[, , , , ,]}
-          renderItem={({ item }) => (
-            <Image
-              source={require('../../assets/images/offer-banner.png')}
-              containerStyle={{
-                aspectRatio: 1,
-                height: 206,
-                width: 343,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            />
-          )}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        /> */}
+      </View>
+      <View
+        style={{
+          // height: 200,
+          // backgroundColor: 'grey',
+          width: '90%',
+          marginTop: 10,
+        }}
+      >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 14 }}>
+            Category
+          </Text>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              fontSize: 14,
+              color: COLORS.blue,
+            }}
+          >
+            More Category
+          </Text>
+        </View>
+        <View>
+          <FlatList
+            horizontal
+            data={CATEGORIES}
+            renderItem={({ item }) => (
+              <View
+                style={{
+                  width: 70,
+                  justifyContent: 'flex-start',
+                  alignItems: 'center',
+                  marginRight: 10,
+                }}
+              >
+                <View
+                  style={{
+                    borderRadius: 100,
+                    width: 70,
+                    height: 70,
+                    borderWidth: 1,
+                    borderColor: COLORS.light,
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Icon
+                    name={item.iconName}
+                    type={item.iconType}
+                    color={COLORS.blue}
+                  />
+                </View>
+                <Text
+                  style={{
+                    marginTop: 8,
+                    fontFamily: 'Poppins-Regular',
+                    fontSize: 10,
+                    color: COLORS.grey,
+                  }}
+                >
+                  {item.desc}
+                </Text>
+              </View>
+            )}
+            contentContainerStyle={{ marginTop: 10 }}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
       </View>
       <View
         style={{
           height: 200,
-          backgroundColor: 'grey',
+          // backgroundColor: 'lightblue',
           width: '90%',
           marginTop: 10,
         }}
-      ></View>
-      <View
-        style={{
-          height: 200,
-          backgroundColor: 'lightblue',
-          width: '90%',
-          marginTop: 10,
-        }}
-      ></View>
+      >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 14 }}>
+            Flash Sale
+          </Text>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              fontSize: 14,
+              color: COLORS.blue,
+            }}
+          >
+            See More
+          </Text>
+        </View>
+      </View>
       <View
         style={{
           height: 200,
