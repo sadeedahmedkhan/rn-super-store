@@ -352,27 +352,19 @@ const HomeFeed = (props) => {
       </View>
       <View
         style={{
-          // height: 200,
-          // backgroundColor: 'lightgreen',
           width: '90%',
           marginTop: 15,
           flexDirection: 'row',
           flexWrap: 'wrap',
-          // alignContent: 'center',
-          // justifyContent: 'space-between',
         }}
       >
         {RECOMENDED.map((item, index) => (
-          <View
+          <TouchableOpacity
             key={index}
             style={{
               width: '50%',
               marginBottom: 10,
               alignItems: 'center',
-              // justifyContent: 'space-between',
-              // backgroundColor: index % 2 === 0 ? 'red' : 'green',
-              // borderColor: 'blue',
-              // borderWidth: 1,
             }}
           >
             <ProductItem
@@ -382,15 +374,8 @@ const HomeFeed = (props) => {
                 width: 171,
               }}
             />
-          </View>
+          </TouchableOpacity>
         ))}
-        {/* <FlatList
-          data={RECOMENDED}
-          numColumns={2}
-          // horizontal
-          renderItem={({ item }) => <ProductItem {...item} />}
-          scrollEnabled={false}
-        /> */}
       </View>
     </ScrollView>
   );
