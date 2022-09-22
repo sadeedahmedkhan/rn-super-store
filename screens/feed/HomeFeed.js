@@ -261,6 +261,7 @@ const HomeFeed = (props) => {
               fontSize: 14,
               color: COLORS.blue,
             }}
+            onPress={() => navigation.navigate('sale')}
           >
             See More
           </Text>
@@ -369,7 +370,6 @@ const HomeFeed = (props) => {
           >
             <ProductItem
               {...item}
-              size='large'
               style={{
                 width: 171,
               }}

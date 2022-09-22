@@ -148,7 +148,11 @@ const HomeFeedStackNavigation = () => {
         component={SuperFlashSale}
         options={{
           headerTitle: 'Super Flash Sale',
-          headerTitleStyle: { fontFamily: 'Poppins-Bold', fontSize: 16 },
+          headerTitleStyle: {
+            fontFamily: 'Poppins-Bold',
+            fontSize: 16,
+            color: COLORS.dark,
+          },
         }}
       />
     </HomeFeedStackNavigator.Navigator>
