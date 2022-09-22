@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
   headingText: {
     fontFamily: 'Poppins-Bold',
     fontSize: 16,
+    color: COLORS.dark,
   },
   bodyText: {
     fontFamily: 'Poppins-Regular',

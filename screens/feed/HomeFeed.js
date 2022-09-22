@@ -10,6 +10,7 @@ import {
 import { Button, Icon, Image } from '@rneui/themed';
 import InputField from '../../components/InputField';
 import ProductItem from '../../components/ProductItem';
+import CategoryItem from '../../components/CategoryItem';
 import { FlatListSlider } from 'react-native-flatlist-slider';
 import COLORS from '../../constants/colors';
 
@@ -115,7 +116,6 @@ const HomeFeed = (props) => {
               width: '75%',
               marginBottom: -10,
               marginTop: 15,
-              // backgroundColor: 'red',
             }}
           >
             <InputField
@@ -156,7 +156,6 @@ const HomeFeed = (props) => {
       <View
         style={{
           height: 250,
-          // backgroundColor: 'pink',
           width: '90%',
           marginTop: 10,
           borderRadius: 5,
@@ -177,8 +176,6 @@ const HomeFeed = (props) => {
       </View>
       <View
         style={{
-          // height: 200,
-          // backgroundColor: 'grey',
           width: '90%',
           marginTop: 10,
         }}
@@ -207,43 +204,7 @@ const HomeFeed = (props) => {
           <FlatList
             horizontal
             data={CATEGORIES}
-            renderItem={({ item }) => (
-              <View
-                style={{
-                  width: 70,
-                  justifyContent: 'flex-start',
-                  alignItems: 'center',
-                  marginRight: 10,
-                }}
-              >
-                <View
-                  style={{
-                    borderRadius: 100,
-                    width: 70,
-                    height: 70,
-                    borderWidth: 1,
-                    borderColor: COLORS.light,
-                    justifyContent: 'center',
-                  }}
-                >
-                  <Icon
-                    name={item.iconName}
-                    type={item.iconType}
-                    color={COLORS.blue}
-                  />
-                </View>
-                <Text
-                  style={{
-                    marginTop: 8,
-                    fontFamily: 'Poppins-Regular',
-                    fontSize: 10,
-                    color: COLORS.grey,
-                  }}
-                >
-                  {item.desc}
-                </Text>
-              </View>
-            )}
+            renderItem={({ item }) => <CategoryItem {...item} />}
             contentContainerStyle={{ marginTop: 10 }}
             showsHorizontalScrollIndicator={false}
           />
@@ -251,8 +212,6 @@ const HomeFeed = (props) => {
       </View>
       <View
         style={{
-          // height: 200,
-          // backgroundColor: 'lightblue',
           width: '90%',
           marginTop: 20,
         }}
@@ -295,8 +254,6 @@ const HomeFeed = (props) => {
       </View>
       <View
         style={{
-          // height: 200,
-          // backgroundColor: 'lightblue',
           width: '90%',
           marginTop: 20,
         }}
@@ -327,10 +284,7 @@ const HomeFeed = (props) => {
             showsHorizontalScrollIndicator={false}
             data={MEGA_SALE}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('sale')}
-                // style={{ flex: 1, width: '100%' }}
-              >
+              <TouchableOpacity onPress={() => navigation.navigate('sale')}>
                 <ProductItem {...item} />
               </TouchableOpacity>
             )}
@@ -353,7 +307,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     alignItems: 'center',
-    // justifyContent: 'center',
     backgroundColor: COLORS.white,
   },
   header: {
