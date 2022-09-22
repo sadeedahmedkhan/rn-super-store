@@ -5,8 +5,8 @@ import COLORS from '../constants/colors';
 
 const ProductItem = (props) => {
   return (
-    <View style={styles.container}>
-      <Image source={props.image} style={{ aspectRatio: 1, width: 109 }} />
+    <View style={[styles.container, { ...props.style }]}>
+      <Image source={props.image} style={{ aspectRatio: 1, width: '100%' }} />
       <Text
         style={{
           fontFamily: 'Poppins-Bold',
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
     borderColor: COLORS.light,
     borderRadius: 5,
     padding: 20,
-    width: 150,
-    marginRight: 10,
+    width: 141,
+    // marginRight: 10,
     flex: 1,
   },
 });

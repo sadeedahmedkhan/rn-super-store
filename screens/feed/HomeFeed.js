@@ -5,6 +5,7 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  VirtualizedList,
   StyleSheet,
 } from 'react-native';
 import { Button, Icon, Image } from '@rneui/themed';
@@ -101,6 +102,33 @@ const MEGA_SALE = [
     price: 534.33,
     promotion: 24,
     image: require('../../assets/images/product-6.png'),
+  },
+];
+
+const RECOMENDED = [
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-4.png'),
+  },
+  {
+    productName: 'FS - QUILTED MAXI CROSS GENDER ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-5.png'),
+  },
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-7.png'),
+  },
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-8.png'),
   },
 ];
 
@@ -246,7 +274,13 @@ const HomeFeed = (props) => {
                 onPress={() => navigation.navigate('sale')}
                 // style={{ flex: 1, width: '100%' }}
               >
-                <ProductItem {...item} />
+                <ProductItem
+                  {...item}
+                  style={{
+                    width: 141,
+                    marginRight: 10,
+                  }}
+                />
               </TouchableOpacity>
             )}
           />
@@ -285,7 +319,13 @@ const HomeFeed = (props) => {
             data={MEGA_SALE}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => navigation.navigate('sale')}>
-                <ProductItem {...item} />
+                <ProductItem
+                  {...item}
+                  style={{
+                    width: 141,
+                    marginRight: 10,
+                  }}
+                />
               </TouchableOpacity>
             )}
           />
@@ -293,12 +333,64 @@ const HomeFeed = (props) => {
       </View>
       <View
         style={{
-          height: 200,
-          backgroundColor: 'lightgreen',
           width: '90%',
+          height: 206,
           marginTop: 10,
+          borderRadius: 5,
+          alignItems: 'center',
         }}
-      ></View>
+      >
+        <Image
+          source={require('../../assets/images/recomended-product-banner.png')}
+          style={{
+            aspectRatio: 1,
+            width: '100%',
+            borderRadius: 5,
+          }}
+        />
+      </View>
+      <View
+        style={{
+          // height: 200,
+          // backgroundColor: 'lightgreen',
+          width: '90%',
+          marginTop: 15,
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          // alignContent: 'center',
+          // justifyContent: 'space-between',
+        }}
+      >
+        {RECOMENDED.map((item, index) => (
+          <View
+            key={index}
+            style={{
+              width: '50%',
+              marginBottom: 10,
+              alignItems: 'center',
+              // justifyContent: 'space-between',
+              // backgroundColor: index % 2 === 0 ? 'red' : 'green',
+              // borderColor: 'blue',
+              // borderWidth: 1,
+            }}
+          >
+            <ProductItem
+              {...item}
+              size='large'
+              style={{
+                width: 171,
+              }}
+            />
+          </View>
+        ))}
+        {/* <FlatList
+          data={RECOMENDED}
+          numColumns={2}
+          // horizontal
+          renderItem={({ item }) => <ProductItem {...item} />}
+          scrollEnabled={false}
+        /> */}
+      </View>
     </ScrollView>
   );
 };
