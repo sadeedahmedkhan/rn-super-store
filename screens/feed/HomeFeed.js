@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react';
-import { View, Text, ScrollView, FlatList, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { Button, Icon, Image } from '@rneui/themed';
 import InputField from '../../components/InputField';
+import ProductItem from '../../components/ProductItem';
 import { FlatListSlider } from 'react-native-flatlist-slider';
 import COLORS from '../../constants/colors';
 
@@ -50,6 +58,48 @@ const CATEGORIES = [
     desc: 'Man Shoes',
     iconName: 'shoe-formal',
     iconType: 'material-community',
+  },
+];
+
+const FLASH_SALE = [
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product.png'),
+  },
+  {
+    productName: 'FS - QUILTED MAXI CROSS GENDER ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-2.png'),
+  },
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-3.png'),
+  },
+];
+
+const MEGA_SALE = [
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-4.png'),
+  },
+  {
+    productName: 'FS - QUILTED MAXI CROSS GENDER ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-5.png'),
+  },
+  {
+    productName: 'FS - Nike Air Max 270 React ENG',
+    price: 534.33,
+    promotion: 24,
+    image: require('../../assets/images/product-6.png'),
   },
 ];
 
@@ -134,7 +184,13 @@ const HomeFeed = (props) => {
         }}
       >
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 14 }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              fontSize: 14,
+              color: COLORS.dark,
+            }}
+          >
             Category
           </Text>
           <Text
@@ -195,14 +251,20 @@ const HomeFeed = (props) => {
       </View>
       <View
         style={{
-          height: 200,
+          // height: 200,
           // backgroundColor: 'lightblue',
           width: '90%',
-          marginTop: 10,
+          marginTop: 20,
         }}
       >
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={{ fontFamily: 'Poppins-Bold', fontSize: 14 }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              fontSize: 14,
+              color: COLORS.dark,
+            }}
+          >
             Flash Sale
           </Text>
           <Text
@@ -214,6 +276,65 @@ const HomeFeed = (props) => {
           >
             See More
           </Text>
+        </View>
+        <View style={{ marginTop: 10 }}>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={FLASH_SALE}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('sale')}
+                // style={{ flex: 1, width: '100%' }}
+              >
+                <ProductItem {...item} />
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      </View>
+      <View
+        style={{
+          // height: 200,
+          // backgroundColor: 'lightblue',
+          width: '90%',
+          marginTop: 20,
+        }}
+      >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              fontSize: 14,
+              color: COLORS.dark,
+            }}
+          >
+            Mega Sale
+          </Text>
+          <Text
+            style={{
+              fontFamily: 'Poppins-Bold',
+              fontSize: 14,
+              color: COLORS.blue,
+            }}
+          >
+            See More
+          </Text>
+        </View>
+        <View style={{ marginTop: 10 }}>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={MEGA_SALE}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('sale')}
+                // style={{ flex: 1, width: '100%' }}
+              >
+                <ProductItem {...item} />
+              </TouchableOpacity>
+            )}
+          />
         </View>
       </View>
       <View
