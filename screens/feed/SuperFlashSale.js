@@ -32,6 +32,8 @@ const FLASH_SALE = [
 ];
 
 const SuperFlashSale = (props) => {
+  const { navigation } = props;
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -53,6 +55,9 @@ const SuperFlashSale = (props) => {
               flex: 1,
               alignItems: 'center',
               marginBottom: 10,
+            }}
+            onPress={() => {
+              navigation.navigate('ProductDetail');
             }}
           >
             <ProductItem {...item} style={{ width: 161 }} />

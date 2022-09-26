@@ -13,6 +13,7 @@ import Cart from '../screens/cart/Cart';
 import Offer from './../screens/offer/Offer';
 import Account from '../screens/account/Account';
 import COLORS from '../constants/colors';
+import ProductDetail from './../screens/product/ProductDetail';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -141,19 +142,31 @@ const HomeFeedStackNavigator = createNativeStackNavigator();
 
 const HomeFeedStackNavigation = () => {
   return (
-    <HomeFeedStackNavigator.Navigator>
+    <HomeFeedStackNavigator.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          fontFamily: 'Poppins-Bold',
+          fontSize: 16,
+          color: COLORS.dark,
+        },
+      }}
+    >
       <HomeFeedStackNavigator.Screen name='home' component={HomeFeed} />
       <HomeFeedStackNavigator.Screen
         name='sale'
         component={SuperFlashSale}
         options={{
           headerTitle: 'Super Flash Sale',
-          headerTitleStyle: {
-            fontFamily: 'Poppins-Bold',
-            fontSize: 16,
-            color: COLORS.dark,
-          },
         }}
+      />
+      <HomeFeedStackNavigator.Screen
+        name='ProductDetail'
+        component={ProductDetail}
+        options={
+          {
+            // headerTitle: 'Super Flash Sale',
+          }
+        }
       />
     </HomeFeedStackNavigator.Navigator>
   );

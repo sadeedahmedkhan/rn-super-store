@@ -20,6 +20,11 @@ const styles = StyleSheet.create({
   containerStyle: {
     width: '86%',
     borderRadius: 5,
+    shadowColor: COLORS.blue,
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.24,
+    shadowRadius: 5,
+    elevation: 30,
   },
   titleStyle: { fontFamily: 'Poppins-Bold', fontSize: 14 },
   buttonStyle: { paddingVertical: 15, backgroundColor: COLORS.blue },
