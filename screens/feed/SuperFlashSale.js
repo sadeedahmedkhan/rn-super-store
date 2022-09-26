@@ -9,25 +9,25 @@ const FLASH_SALE = [
     productName: 'FS - Nike Air Max 270 React ENG',
     price: 534.33,
     promotion: 24,
-    image: require('../../assets/images/product.png'),
+    image: require('../../assets/images/products/product.png'),
   },
   {
     productName: 'FS - QUILTED MAXI CROSS GENDER ENG',
     price: 534.33,
     promotion: 24,
-    image: require('../../assets/images/product-5.png'),
+    image: require('../../assets/images/products/product-5.png'),
   },
   {
     productName: 'FS - Nike Air Max 270 React ENG',
     price: 534.33,
     promotion: 24,
-    image: require('../../assets/images/product-3.png'),
+    image: require('../../assets/images/products/product-3.png'),
   },
   {
     productName: 'FS - Nike Air Max 270 React ENG',
     price: 534.33,
     promotion: 24,
-    image: require('../../assets/images/product-8.png'),
+    image: require('../../assets/images/products/product-8.png'),
   },
 ];
 

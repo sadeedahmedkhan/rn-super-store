@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.24,
     shadowRadius: 5,
-    elevation: 30,
+    elevation: 20,
   },
   titleStyle: { fontFamily: 'Poppins-Bold', fontSize: 14 },
   buttonStyle: { paddingVertical: 15, backgroundColor: COLORS.blue },
