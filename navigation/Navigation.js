@@ -173,20 +173,13 @@ const HomeFeedStackNavigation = () => {
       <HomeFeedStackNavigator.Screen
         name='ProductReviews'
         component={ProductReviews}
-        options={
-          {
-            // headerTitle: 'Super Flash Sale',
-          }
-        }
       />
       <HomeFeedStackNavigator.Screen
         name='AddReview'
         component={AddReview}
-        options={
-          {
-            // headerTitle: 'Super Flash Sale',
-          }
-        }
+        options={{
+          headerTitle: 'Write Review',
+        }}
       />
     </HomeFeedStackNavigator.Navigator>
   );
