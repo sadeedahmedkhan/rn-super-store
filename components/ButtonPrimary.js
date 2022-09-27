@@ -18,7 +18,7 @@ const ButtonPrimary = (props) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    width: '86%',
+    width: '100%',
     borderRadius: 5,
     shadowColor: COLORS.blue,
     shadowOffset: { width: 0, height: 10 },

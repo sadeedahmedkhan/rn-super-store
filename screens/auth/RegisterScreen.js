@@ -77,7 +77,7 @@ const RegisterScreen = (props) => {
             }}
           />
         </View>
-        <View style={{ alignItems: 'center', width: '100%' }}>
+        <View style={{ alignItems: 'center', width: '86%' }}>
           <ButtonPrimary
             title='Sign Up'
             onPressHandler={() => {

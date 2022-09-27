@@ -8,8 +8,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import { FlatListSlider } from 'react-native-flatlist-slider';
-import { Image, Icon, AirbnbRating } from '@rneui/themed';
+import { Icon, AirbnbRating } from '@rneui/themed';
 import ProductItem from '../../components/ProductItem';
+import ReviewItem from '../../components/ReviewItem';
 import ButtonPrimary from './../../components/ButtonPrimary';
 import COLORS from '../../constants/colors';
 
@@ -80,93 +81,6 @@ const productDetails = {
     },
   ],
   overAllRating: 4.5,
-};
-
-const ReviewItem = (props) => {
-  return (
-    <View style={{ flex: 1 }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          width: '100%',
-          justifyContent: 'flex-start',
-          // backgroundColor: 'lightgrey',
-        }}
-      >
-        <View style={{ width: '20%' }}>
-          <Image
-            source={props.picture}
-            style={{ aspectRatio: 1, width: 48, height: 48 }}
-          />
-        </View>
-        <View
-          style={{
-            width: '80%',
-            justifyContent: 'center',
-          }}
-        >
-          <Text
-            style={{
-              fontFamily: 'Poppins-Bold',
-              fontSize: 14,
-              color: COLORS.dark,
-            }}
-          >
-            {props.name}
-          </Text>
-          <AirbnbRating
-            isDisabled
-            defaultRating={props.rated}
-            size={15}
-            selectedColor={COLORS.yellow}
-            showRating={false}
-            starContainerStyle={{ alignSelf: 'flex-start' }}
-          />
-        </View>
-      </View>
-      <View style={{ marginTop: 15 }}>
-        <Text
-          style={{
-            fontFamily: 'Poppins-Regular',
-            fontSize: 12,
-            color: COLORS.grey,
-          }}
-        >
-          {props.review}
-        </Text>
-      </View>
-      <View style={{ flex: 1, width: '100%', marginTop: 15 }}>
-        <FlatList
-          data={props.productPhotos}
-          renderItem={({ item }) => {
-            return (
-              <Image
-                source={item}
-                style={{
-                  width: 72,
-                  height: 72,
-                  aspectRatio: 1,
-                  marginRight: 15,
-                }}
-              />
-            );
-          }}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
-      <Text
-        style={{
-          fontFamily: 'Poppins-Regular',
-          fontSize: 10,
-          color: COLORS.grey,
-          marginTop: 15,
-        }}
-      >
-        {props.date}
-      </Text>
-    </View>
-  );
 };
 
 const ProductDetail = (props) => {
@@ -459,6 +373,9 @@ const ProductDetail = (props) => {
               fontSize: 14,
               color: COLORS.blue,
               marginTop: 20,
+            }}
+            onPress={() => {
+              navigation.navigate('ProductReviews');
             }}
           >
             See More
