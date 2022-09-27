@@ -458,7 +458,7 @@ const ProductDetail = (props) => {
           />
         </View>
         <View style={{ marginTop: 20, width: '100%', alignItems: 'center' }}>
-          <ButtonPrimary title='Add To Cart' onPress={() => {}} />
+          <ButtonPrimary title='Add To Cart' onPressHandler={() => {}} />
         </View>
       </View>
     </ScrollView>

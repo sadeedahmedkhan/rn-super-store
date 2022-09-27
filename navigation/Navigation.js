@@ -15,6 +15,7 @@ import Account from '../screens/account/Account';
 import COLORS from '../constants/colors';
 import ProductDetail from './../screens/product/ProductDetail';
 import ProductReviews from './../screens/product/ProductReviews';
+import AddReview from './../screens/product/AddReview';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -172,6 +173,15 @@ const HomeFeedStackNavigation = () => {
       <HomeFeedStackNavigator.Screen
         name='ProductReviews'
         component={ProductReviews}
+        options={
+          {
+            // headerTitle: 'Super Flash Sale',
+          }
+        }
+      />
+      <HomeFeedStackNavigator.Screen
+        name='AddReview'
+        component={AddReview}
         options={
           {
             // headerTitle: 'Super Flash Sale',

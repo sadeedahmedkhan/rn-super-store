@@ -55,26 +55,29 @@ const ReviewItem = (props) => {
           {props.review}
         </Text>
       </View>
-      <View style={{ flex: 1, width: '100%', marginTop: 15 }}>
-        <FlatList
-          data={props.productPhotos}
-          renderItem={({ item }) => {
-            return (
-              <Image
-                source={item}
-                style={{
-                  width: 72,
-                  height: 72,
-                  aspectRatio: 1,
-                  marginRight: 15,
-                }}
-              />
-            );
-          }}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        />
-      </View>
+      {props.productPhotos.length > 0 && (
+        <View style={{ flex: 1, width: '100%', marginTop: 15 }}>
+          <FlatList
+            data={props.productPhotos}
+            renderItem={({ item }) => {
+              return (
+                <Image
+                  source={item}
+                  style={{
+                    width: 72,
+                    height: 72,
+                    aspectRatio: 1,
+                    marginRight: 15,
+                  }}
+                />
+              );
+            }}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      )}
+
       <Text
         style={{
           fontFamily: 'Poppins-Regular',
