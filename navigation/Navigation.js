@@ -16,6 +16,7 @@ import COLORS from '../constants/colors';
 import ProductDetail from './../screens/product/ProductDetail';
 import ProductReviews from './../screens/product/ProductReviews';
 import AddReview from './../screens/product/AddReview';
+import Notifications from './../screens/notification/Notifications';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -179,6 +180,13 @@ const HomeFeedStackNavigation = () => {
         component={AddReview}
         options={{
           headerTitle: 'Write Review',
+        }}
+      />
+      <HomeFeedStackNavigator.Screen
+        name='Notifications'
+        component={Notifications}
+        options={{
+          headerTitle: 'Notifications',
         }}
       />
     </HomeFeedStackNavigator.Navigator>

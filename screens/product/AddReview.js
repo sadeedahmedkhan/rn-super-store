@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { AirbnbRating, Button, Image } from '@rneui/base';
 import InputField from '../../components/InputField';
+import ButtonPrimary from '../../components/ButtonPrimary';
 import COLORS from '../../constants/colors';
 
 const AddReview = (props) => {
@@ -69,6 +70,9 @@ const AddReview = (props) => {
             borderRadius: 5,
           }}
         />
+      </View>
+      <View style={{ marginTop: 20 }}>
+        <ButtonPrimary title='Add Review' onPressHandler={() => {}} />
       </View>
     </View>
   );

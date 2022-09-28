@@ -119,11 +119,11 @@ const ProductReviews = (props) => {
                 }
                 containerStyle={{
                   marginRight: 10,
-                  borderRadius: 5,
                 }}
                 buttonStyle={{
                   width: 62,
                   height: 40,
+                  borderRadius: 5,
                 }}
                 key={item}
                 titleStyle={{}}

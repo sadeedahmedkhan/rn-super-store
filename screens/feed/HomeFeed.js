@@ -173,6 +173,7 @@ const HomeFeed = (props) => {
             <Button
               icon={<Icon name='bell' type='feather' color={COLORS.grey} />}
               type='clear'
+              onPress={() => navigation.navigate('Notifications')}
             />
           </View>
         </View>
