@@ -44,7 +44,7 @@ const NotificationOffer = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    paddingVertical: 15,
     backgroundColor: COLORS.white,
   },
 });
