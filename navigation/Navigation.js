@@ -17,6 +17,9 @@ import ProductDetail from './../screens/product/ProductDetail';
 import ProductReviews from './../screens/product/ProductReviews';
 import AddReview from './../screens/product/AddReview';
 import Notifications from './../screens/notification/Notifications';
+import NotificationOffer from './../screens/notification/NotificationOffer';
+import NotificationFeed from './../screens/notification/NotificationFeed';
+import NotificationActivity from './../screens/notification/NotificationActivity';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -187,6 +190,27 @@ const HomeFeedStackNavigation = () => {
         component={Notifications}
         options={{
           headerTitle: 'Notifications',
+        }}
+      />
+      <HomeFeedStackNavigator.Screen
+        name='NotificationOffer'
+        component={NotificationOffer}
+        options={{
+          headerTitle: 'Offer',
+        }}
+      />
+      <HomeFeedStackNavigator.Screen
+        name='NotificationFeed'
+        component={NotificationFeed}
+        options={{
+          headerTitle: 'Feed',
+        }}
+      />
+      <HomeFeedStackNavigator.Screen
+        name='NotificationActivity'
+        component={NotificationActivity}
+        options={{
+          headerTitle: 'Activity',
         }}
       />
     </HomeFeedStackNavigator.Navigator>

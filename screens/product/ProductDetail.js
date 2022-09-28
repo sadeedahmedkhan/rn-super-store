@@ -449,7 +449,6 @@ const ProductDetail = (props) => {
                   {...item}
                   style={{
                     width: 141,
-                    // height: 100,
                     marginRight: 10,
                   }}
                 />
