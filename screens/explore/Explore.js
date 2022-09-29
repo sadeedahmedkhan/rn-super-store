@@ -75,7 +75,8 @@ const Explore = (props) => {
                 color: COLORS.blue,
                 size: 17,
               }}
-              // onPressIn={navigation.navigate('searchResults')}
+              onPressIn={() => navigation.navigate('searchResults')}
+              showSoftInputOnFocus={false}
             />
           </View>
           <View
