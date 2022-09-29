@@ -5,7 +5,7 @@ import COLORS from '../constants/colors';
 
 const CategoryItem = (props) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { ...props.containerStyle }]}>
       <View style={styles.iconContainer}>
         <Icon name={props.iconName} type={props.iconType} color={COLORS.blue} />
       </View>
