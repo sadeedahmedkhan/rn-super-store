@@ -83,7 +83,6 @@ const Explore = (props) => {
             style={{
               width: '25%',
               flexDirection: 'row',
-
               justifyContent: 'flex-start',
             }}
           >
