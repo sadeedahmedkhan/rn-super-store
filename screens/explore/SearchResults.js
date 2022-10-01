@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import { Button, Icon } from '@rneui/themed';
 import InputField from '../../components/InputField';
 import COLORS from '../../constants/colors';
@@ -10,12 +11,14 @@ const RECENT_SEARCHES = [
   'Nike Air Max 270 React ENG',
   'Nike Air Max 270 React',
   'Nike Air Vapormax 360 Flyknit 3',
-  'Nike Air Max React ENG',
+  'Nike Air Max 97 Utility',
   'Nike Air Max React ENG',
 ];
 
 const SearchResults = (props) => {
   const { navigation } = props;
+
+  const searchInputRef = useRef();
 
   useEffect(() => {
     navigation.setOptions({
@@ -36,8 +39,9 @@ const SearchResults = (props) => {
                 color: COLORS.blue,
                 size: 17,
               }}
+              autoFocus={true}
               onPressIn={() => navigation.navigate('searchResults')}
-              showSoftInputOnFocus={false}
+              ref={searchInputRef}
             />
           </View>
           <View
@@ -48,9 +52,7 @@ const SearchResults = (props) => {
             }}
           >
             <Button
-              icon={
-                <Icon name='hearto' type='ant-design' color={COLORS.grey} />
-              }
+              icon={<Icon name='mic' type='feather' color={COLORS.grey} />}
               type='clear'
             />
           </View>
@@ -60,10 +62,33 @@ const SearchResults = (props) => {
     });
   }, []);
 
+  // useFocusEffect(() => {
+  //   searchInputRef.focus();
+  // });
+
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Text style={styles.bodyTextGrey}>Search Results</Text>
-    </ScrollView>
+    <FlatList
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
+      ListHeaderComponent={
+        <View
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            justifyContent: 'space-between',
+          }}
+        >
+          <Text style={styles.bodyTextGrey}>Search Results</Text>
+          <Text style={styles.bodyTextBlue}>Clear All</Text>
+        </View>
+      }
+      data={RECENT_SEARCHES}
+      renderItem={({ item }) => (
+        <View style={{ marginVertical: 20 }}>
+          <Text style={styles.bodyTextGrey}>{item}</Text>
+        </View>
+      )}
+    />
   );
 };
 
@@ -84,6 +109,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     fontSize: 12,
     color: COLORS.grey,
+  },
+  bodyTextBlue: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 12,
+    color: COLORS.blue,
   },
 });
 

@@ -154,6 +154,10 @@ const HomeFeed = (props) => {
                 color: COLORS.blue,
                 size: 17,
               }}
+              onPressIn={() =>
+                navigation.navigate('Explore', { screen: 'searchResults' })
+              }
+              showSoftInputOnFocus={false}
             />
           </View>
           <View

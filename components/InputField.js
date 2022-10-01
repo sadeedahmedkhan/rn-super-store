@@ -12,6 +12,7 @@ const InputField = (props) => {
       inputContainerStyle={[styles.inputContainer, { ...props.containerStyle }]}
       leftIcon={props.leftIcon ? { ...props.leftIcon } : null}
       rightIcon={props.rightIcon ? { ...props.rightIcon } : null}
+      autoFocus={props.autoFocus}
     />
   );
 };
