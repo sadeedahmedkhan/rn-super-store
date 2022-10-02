@@ -13,6 +13,9 @@ const InputField = (props) => {
       leftIcon={props.leftIcon ? { ...props.leftIcon } : null}
       rightIcon={props.rightIcon ? { ...props.rightIcon } : null}
       autoFocus={props.autoFocus}
+      value={props.value}
+      onChangeText={props.onChangeTextHandler}
+      onSubmitEditing={props.onSubmitEditingHandler}
     />
   );
 };
