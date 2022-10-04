@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigation from './navigation/Navigation';
@@ -30,10 +31,10 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   return (
-    <>
+    <SafeAreaProvider>
       <Navigation />
       <StatusBar style='auto' />
-    </>
+    </SafeAreaProvider>
   );
 }
 
