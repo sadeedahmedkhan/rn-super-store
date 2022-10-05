@@ -155,6 +155,7 @@ const CATEGORIES = [
 ];
 
 const SORT_BY = [
+  'Best Match',
   'Time: Ending Soonest',
   'Time: Newly Listed',
   'Price + Shipping: Lowest First',
@@ -166,6 +167,7 @@ const SearchResults = (props) => {
   const [search, setSearch] = useState('');
   const [searchSubmitted, setSearchSubmitted] = useState('recent');
   const [isVisible, setVisible] = useState(false);
+  const [isSortVisible, setSortVisible] = useState(false);
 
   const { navigation } = props;
 
@@ -175,7 +177,7 @@ const SearchResults = (props) => {
         <View style={styles.header}>
           <View
             style={{
-              width: '85%',
+              width: '75%',
               marginBottom: -10,
               marginTop: 15,
             }}
@@ -196,13 +198,26 @@ const SearchResults = (props) => {
           </View>
           <View
             style={{
-              width: '15%',
+              width: '25%',
               flexDirection: 'row',
               justifyContent: 'flex-start',
             }}
           >
             <Button
-              icon={<Icon name='mic' type='feather' color={COLORS.grey} />}
+              icon={
+                <Icon
+                  name='sort-ascending'
+                  type='material-community'
+                  color={COLORS.grey}
+                />
+              }
+              type='clear'
+              onPress={() => setSortVisible(true)}
+            />
+            <Button
+              icon={
+                <Icon name='filter' type='ant-design' color={COLORS.grey} />
+              }
               type='clear'
             />
           </View>
@@ -227,6 +242,123 @@ const SearchResults = (props) => {
       setSearchSubmitted('empty');
     }
   };
+
+  const CategoryBottomSheet = (props) => (
+    <BottomSheet
+      isVisible={isVisible}
+      onBackdropPress={() => {
+        setVisible(false);
+      }}
+      modalProps={{
+        animationType: 'slide',
+        statusBarTranslucent: true,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: COLORS.white,
+          flexGrow: 1,
+          // height: 200,
+          borderRadius: 20,
+        }}
+      >
+        <View style={{ padding: 20 }}>
+          <Text style={styles.h4dark}>Category</Text>
+        </View>
+        <ScrollView
+          style={{
+            backgroundColor: COLORS.white,
+            height: 500,
+            flexGrow: 1,
+          }}
+        >
+          {CATEGORIES.map((item, index) => (
+            <TouchableOpacity key={index}>
+              <ListItem
+                containerStyle={
+                  index === 4 ? { backgroundColor: COLORS.light } : null
+                }
+                onPress={() => {
+                  setVisible(false);
+                }}
+              >
+                <Icon
+                  name={item.iconName}
+                  type={item.iconType}
+                  color={COLORS.blue}
+                  size={20}
+                />
+                <ListItem.Content>
+                  <ListItem.Title style={styles.bodyTextDark}>
+                    {item.title}
+                  </ListItem.Title>
+                </ListItem.Content>
+              </ListItem>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+    </BottomSheet>
+  );
+
+  const SortBottomSheet = (props) => (
+    <BottomSheet
+      isVisible={isSortVisible}
+      onBackdropPress={() => {
+        setSortVisible(false);
+      }}
+      modalProps={{
+        animationType: 'slide',
+        statusBarTranslucent: true,
+      }}
+      containerStyle={{ backgroundColor: 'rgba(0,0,0,0.1)' }}
+    >
+      <View
+        style={{
+          backgroundColor: COLORS.white,
+          flexGrow: 1,
+          // height: 200,
+          borderRadius: 20,
+        }}
+      >
+        <View style={{ padding: 20 }}>
+          <Text style={styles.h4dark}>Sort By</Text>
+        </View>
+        <ScrollView
+          style={{
+            backgroundColor: COLORS.white,
+            height: 500,
+            flexGrow: 1,
+          }}
+        >
+          {SORT_BY.map((item, index) => (
+            <TouchableOpacity key={index}>
+              <ListItem
+                containerStyle={
+                  index === 1 ? { backgroundColor: COLORS.light } : null
+                }
+                onPress={() => {
+                  setSortVisible(false);
+                }}
+              >
+                {/* <Icon
+                  name={item.iconName}
+                  type={item.iconType}
+                  color={COLORS.blue}
+                  size={20}
+                /> */}
+                <ListItem.Content>
+                  <ListItem.Title style={styles.bodyTextDark}>
+                    {item}
+                  </ListItem.Title>
+                </ListItem.Content>
+              </ListItem>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </View>
+    </BottomSheet>
+  );
 
   if (searchSubmitted === 'recent') {
     return (
@@ -267,61 +399,9 @@ const SearchResults = (props) => {
   if (searchSubmitted === 'show') {
     return (
       <>
-        <BottomSheet
-          isVisible={isVisible}
-          onBackdropPress={() => {
-            setVisible(false);
-          }}
-          modalProps={{
-            animationType: 'slide',
-            statusBarTranslucent: true,
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: COLORS.white,
-              flexGrow: 1,
-              // height: 200,
-              borderRadius: 5,
-            }}
-          >
-            <View style={{ padding: 20 }}>
-              <Text style={styles.h4dark}>Category</Text>
-            </View>
-            <ScrollView
-              style={{
-                backgroundColor: COLORS.white,
-                height: 500,
-                flexGrow: 1,
-              }}
-            >
-              {CATEGORIES.map((item, index) => (
-                <TouchableOpacity>
-                  <ListItem
-                    containerStyle={
-                      index === 4 ? { backgroundColor: COLORS.light } : null
-                    }
-                    onPress={() => {
-                      setVisible(false);
-                    }}
-                  >
-                    <Icon
-                      name={item.iconName}
-                      type={item.iconType}
-                      color={COLORS.blue}
-                      size={20}
-                    />
-                    <ListItem.Content>
-                      <ListItem.Title style={styles.bodyTextDark}>
-                        {item.title}
-                      </ListItem.Title>
-                    </ListItem.Content>
-                  </ListItem>
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          </View>
-        </BottomSheet>
+        <CategoryBottomSheet />
+        <SortBottomSheet />
+
         <FlatList
           contentContainerStyle={styles.container}
           showsVerticalScrollIndicator={false}
