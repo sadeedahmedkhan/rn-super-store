@@ -19,7 +19,7 @@ const ButtonOutlined = (props) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    width: '100%',
+    // width: '100%',
   },
   titleStyle: {
     fontFamily: 'Poppins-Regular',

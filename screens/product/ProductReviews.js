@@ -4,6 +4,8 @@ import { Button, Icon } from '@rneui/themed';
 import ReviewItem from '../../components/ReviewItem';
 import ButtonPrimary from '../../components/ButtonPrimary';
 import COLORS from '../../constants/colors';
+import ButtonSecondary from '../../components/ButtonSecondary';
+import ButtonOutlined from '../../components/ButtonOutlined';
 
 const filters = [1, 2, 3, 4, 5];
 
@@ -73,7 +75,10 @@ const ProductReviews = (props) => {
       ListHeaderComponent={
         <View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <Button
+            <View style={{ marginRight: 10 }}>
+              <ButtonSecondary title='All Reviews' />
+            </View>
+            {/* <Button
               type='outline'
               title={'All Reviews'}
               containerStyle={{ marginRight: 10 }}
@@ -89,46 +94,74 @@ const ProductReviews = (props) => {
                 fontSize: 12,
                 color: COLORS.blue,
               }}
-            />
+            /> */}
             {filters.map((item) => (
-              <Button
-                type='outline'
-                title={
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-evenly',
-                      width: '100%',
-                    }}
-                  >
-                    <View style={{ flex: 1 }}>
-                      <Icon name='star' color={COLORS.yellow} size={15} />
+              <View key={item} style={{ marginRight: 10 }}>
+                <ButtonOutlined
+                  title={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-evenly',
+                        // width: '100%',
+                      }}
+                    >
+                      <View style={{}}>
+                        <Icon name='star' color={COLORS.yellow} size={15} />
+                      </View>
+                      <View style={{}}>
+                        <Text
+                          style={{
+                            fontFamily: 'Poppins-Regular',
+                            fontSize: 12,
+                            color: COLORS.grey,
+                          }}
+                        >
+                          {item}
+                        </Text>
+                      </View>
                     </View>
-                    <View style={{ flex: 1 }}>
-                      <Text
-                        style={{
-                          fontFamily: 'Poppins-Regular',
-                          fontSize: 12,
-                          color: COLORS.grey,
-                        }}
-                      >
-                        {item}
-                      </Text>
-                    </View>
-                  </View>
-                }
-                containerStyle={{
-                  marginRight: 10,
-                }}
-                buttonStyle={{
-                  width: 62,
-                  height: 40,
-                  borderRadius: 5,
-                }}
-                key={item}
-                titleStyle={{}}
-                iconPosition='left'
-              />
+                  }
+                />
+              </View>
+              // <Button
+              //   type='outline'
+              //   title={
+              //     <View
+              //       style={{
+              //         flexDirection: 'row',
+              //         justifyContent: 'space-evenly',
+              //         width: '100%',
+              //       }}
+              //     >
+              //       <View style={{ flex: 1 }}>
+              //         <Icon name='star' color={COLORS.yellow} size={15} />
+              //       </View>
+              //       <View style={{ flex: 1 }}>
+              //         <Text
+              //           style={{
+              //             fontFamily: 'Poppins-Regular',
+              //             fontSize: 12,
+              //             color: COLORS.grey,
+              //           }}
+              //         >
+              //           {item}
+              //         </Text>
+              //       </View>
+              //     </View>
+              //   }
+              //   containerStyle={{
+              //     marginRight: 10,
+              //   }}
+              //   buttonStyle={{
+              //     width: 62,
+              //     height: 40,
+              //     borderRadius: 5,
+              //   }}
+              //   key={item}
+              //   titleStyle={{}}
+              //   iconPosition='left'
+              // />
             ))}
           </ScrollView>
         </View>

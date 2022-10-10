@@ -19,7 +19,7 @@ const ButtonSecondary = (props) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    width: '100%',
+    // width: '100%',
   },
   titleStyle: { fontFamily: 'Poppins-Bold', fontSize: 12, color: COLORS.blue },
   buttonStyle: {

@@ -8,7 +8,15 @@ import {
   StyleSheet,
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { Button, Icon, Image, BottomSheet, ListItem } from '@rneui/themed';
+import {
+  Button,
+  Icon,
+  Image,
+  BottomSheet,
+  ListItem,
+  Slider,
+} from '@rneui/themed';
+import RangeSlider from 'rn-range-slider';
 import InputField from '../../components/InputField';
 import COLORS from '../../constants/colors';
 import ProductItem from '../../components/ProductItem';
@@ -452,7 +460,11 @@ const SearchResults = (props) => {
             >
               <InputField placeholderText='$max' />
             </View>
+            {/* <View>
+              <RangeSlider />
+            </View> */}
           </View>
+
           <View style={{ paddingLeft: 15 }}>
             <Text style={styles.h5dark}> Condition </Text>
             <View
@@ -534,7 +546,10 @@ const SearchResults = (props) => {
             </View>
           </View>
           <View style={{ padding: 15 }}>
-            <ButtonPrimary title='Apply' />
+            <ButtonPrimary
+              title='Apply'
+              onPressHandler={() => setFilterVisible(false)}
+            />
           </View>
         </ScrollView>
       </View>
