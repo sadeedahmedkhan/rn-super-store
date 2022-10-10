@@ -13,6 +13,8 @@ import InputField from '../../components/InputField';
 import COLORS from '../../constants/colors';
 import ProductItem from '../../components/ProductItem';
 import ButtonPrimary from './../../components/ButtonPrimary';
+import ButtonSecondary from './../../components/ButtonSecondary';
+import ButtonOutlined from './../../components/ButtonOutlined';
 
 const RECENT_SEARCHES = [
   'Nike Air Max 270 React ENG',
@@ -163,11 +165,37 @@ const SORT_BY = [
   'Distance: Nearest Fisrt',
 ];
 
+const FILTERS = {
+  condition: ['New', 'Used', 'Not Specified'],
+  buyingFormat: [
+    'All Listings',
+    'Accept Offers',
+    'Auction',
+    'Buy It Now',
+    'Classified Ads',
+  ],
+  itemLocation: ['US Only', 'North America', 'Europe', 'Asia'],
+  showOnly: [
+    'Free Returns',
+    'Returns Accepted',
+    'Authorized Seller',
+    'Completed Items',
+    'Sold Items',
+    'Deals & Savings',
+    'Sale Items',
+    'Listed as Lots',
+    'Search in Description',
+    'Benefits Charity',
+    'Authenticity Verified',
+  ],
+};
+
 const SearchResults = (props) => {
   const [search, setSearch] = useState('');
   const [searchSubmitted, setSearchSubmitted] = useState('recent');
   const [isVisible, setVisible] = useState(false);
   const [isSortVisible, setSortVisible] = useState(false);
+  const [isFilterVisible, setFilterVisible] = useState(false);
 
   const { navigation } = props;
 
@@ -216,7 +244,12 @@ const SearchResults = (props) => {
             />
             <Button
               icon={
-                <Icon name='filter' type='ant-design' color={COLORS.grey} />
+                <Icon
+                  name='filter'
+                  type='ant-design'
+                  color={COLORS.grey}
+                  onPress={() => setFilterVisible(true)}
+                />
               }
               type='clear'
             />
@@ -262,7 +295,7 @@ const SearchResults = (props) => {
           borderRadius: 20,
         }}
       >
-        <View style={{ padding: 20 }}>
+        <View style={{ padding: 20, alignItems: 'center' }}>
           <Text style={styles.h4dark}>Category</Text>
         </View>
         <ScrollView
@@ -271,6 +304,7 @@ const SearchResults = (props) => {
             height: 500,
             flexGrow: 1,
           }}
+          showsVerticalScrollIndicator={false}
         >
           {CATEGORIES.map((item, index) => (
             <TouchableOpacity key={index}>
@@ -321,7 +355,7 @@ const SearchResults = (props) => {
           borderRadius: 20,
         }}
       >
-        <View style={{ padding: 20 }}>
+        <View style={{ padding: 20, alignItems: 'center' }}>
           <Text style={styles.h4dark}>Sort By</Text>
         </View>
         <ScrollView
@@ -330,6 +364,7 @@ const SearchResults = (props) => {
             height: 500,
             flexGrow: 1,
           }}
+          showsVerticalScrollIndicator={false}
         >
           {SORT_BY.map((item, index) => (
             <TouchableOpacity key={index}>
@@ -355,6 +390,152 @@ const SearchResults = (props) => {
               </ListItem>
             </TouchableOpacity>
           ))}
+        </ScrollView>
+      </View>
+    </BottomSheet>
+  );
+
+  const FilterBottomSheet = (props) => (
+    <BottomSheet
+      isVisible={isFilterVisible}
+      onBackdropPress={() => {
+        setFilterVisible(false);
+      }}
+      modalProps={{
+        animationType: 'slide',
+        statusBarTranslucent: true,
+      }}
+      containerStyle={{ backgroundColor: 'rgba(0,0,0,0.1)' }}
+    >
+      <View
+        style={{
+          backgroundColor: COLORS.white,
+          flexGrow: 1,
+          // height: 200,
+          borderRadius: 20,
+        }}
+      >
+        <View style={{ padding: 20, alignItems: 'center' }}>
+          <Text style={styles.h4dark}>Filter Search</Text>
+        </View>
+        <ScrollView
+          style={{
+            backgroundColor: COLORS.white,
+            height: 500,
+            flexGrow: 1,
+            // padding: 20,
+          }}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={{ paddingLeft: 15 }}>
+            <Text style={styles.h5dark}>Price Range</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              width: '100%',
+              justifyContent: 'space-between',
+              marginTop: 10,
+            }}
+          >
+            <View
+              style={{
+                width: '50%',
+              }}
+            >
+              <InputField placeholderText='$min' />
+            </View>
+            <View
+              style={{
+                width: '50%',
+              }}
+            >
+              <InputField placeholderText='$max' />
+            </View>
+          </View>
+          <View style={{ paddingLeft: 15 }}>
+            <Text style={styles.h5dark}> Condition </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                marginTop: 10,
+              }}
+            >
+              {FILTERS.condition.map((item, index) => (
+                <View key={index} style={{ marginRight: 10, marginBottom: 10 }}>
+                  {index !== 0 ? (
+                    <ButtonSecondary title={item} />
+                  ) : (
+                    <ButtonOutlined title={item} />
+                  )}
+                </View>
+              ))}
+            </View>
+          </View>
+          <View style={{ paddingLeft: 15, marginTop: 20 }}>
+            <Text style={styles.h5dark}> Buying Format </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                marginTop: 10,
+              }}
+            >
+              {FILTERS.buyingFormat.map((item, index) => (
+                <View key={index} style={{ marginRight: 10, marginBottom: 10 }}>
+                  {index === 1 ? (
+                    <ButtonSecondary title={item} />
+                  ) : (
+                    <ButtonOutlined title={item} />
+                  )}
+                </View>
+              ))}
+            </View>
+          </View>
+          <View style={{ paddingLeft: 15, marginTop: 20 }}>
+            <Text style={styles.h5dark}> Item Location </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                marginTop: 10,
+              }}
+            >
+              {FILTERS.itemLocation.map((item, index) => (
+                <View key={index} style={{ marginRight: 10, marginBottom: 10 }}>
+                  {index === 1 ? (
+                    <ButtonSecondary title={item} />
+                  ) : (
+                    <ButtonOutlined title={item} />
+                  )}
+                </View>
+              ))}
+            </View>
+          </View>
+          <View style={{ paddingLeft: 15, marginTop: 20 }}>
+            <Text style={styles.h5dark}> Show Only </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                marginTop: 10,
+              }}
+            >
+              {FILTERS.showOnly.map((item, index) => (
+                <View key={index} style={{ marginRight: 10, marginBottom: 10 }}>
+                  {index === 1 || index === 4 || index === 8 ? (
+                    <ButtonSecondary title={item} />
+                  ) : (
+                    <ButtonOutlined title={item} />
+                  )}
+                </View>
+              ))}
+            </View>
+          </View>
+          <View style={{ padding: 15 }}>
+            <ButtonPrimary title='Apply' />
+          </View>
         </ScrollView>
       </View>
     </BottomSheet>
@@ -401,6 +582,7 @@ const SearchResults = (props) => {
       <>
         <CategoryBottomSheet />
         <SortBottomSheet />
+        <FilterBottomSheet />
 
         <FlatList
           contentContainerStyle={styles.container}
@@ -508,6 +690,11 @@ const styles = StyleSheet.create({
   h4dark: {
     fontFamily: 'Poppins-Bold',
     fontSize: 16,
+    color: COLORS.dark,
+  },
+  h5dark: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 14,
     color: COLORS.dark,
   },
 });
