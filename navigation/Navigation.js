@@ -244,12 +244,23 @@ const CartStackNavigator = createNativeStackNavigator();
 
 const CartStackNavigation = () => {
   return (
-    <CartStackNavigator.Navigator>
+    <CartStackNavigator.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          fontFamily: 'Poppins-Bold',
+          fontSize: 16,
+          color: COLORS.dark,
+        },
+        // contentStyle: {
+        //   height: 200,
+        // },
+      }}
+    >
       <CartStackNavigator.Screen
         name='cartScreen'
         component={Cart}
         options={{
-          headerTitle: '',
+          headerTitle: 'Your Cart',
         }}
       />
     </CartStackNavigator.Navigator>

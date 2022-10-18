@@ -9,7 +9,11 @@ const InputField = (props) => {
       {...props}
       placeholder={props.placeholderText}
       inputStyle={[styles.input, { ...props.inputStyle }]}
-      inputContainerStyle={[styles.inputContainer, { ...props.containerStyle }]}
+      inputContainerStyle={[
+        styles.inputContainer,
+        { ...props.inputContainerStyle },
+      ]}
+      containerStyle={props.containerStyle}
       leftIcon={props.leftIcon ? { ...props.leftIcon } : null}
       rightIcon={props.rightIcon ? { ...props.rightIcon } : null}
       autoFocus={props.autoFocus}

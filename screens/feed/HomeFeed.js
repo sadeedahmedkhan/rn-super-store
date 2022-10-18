@@ -5,7 +5,6 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
-  VirtualizedList,
   StyleSheet,
 } from 'react-native';
 import { Button, Icon, Image } from '@rneui/themed';
