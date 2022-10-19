@@ -20,6 +20,7 @@ import Notifications from './../screens/notification/Notifications';
 import NotificationOffer from './../screens/notification/NotificationOffer';
 import NotificationFeed from './../screens/notification/NotificationFeed';
 import NotificationActivity from './../screens/notification/NotificationActivity';
+import ShipTo from './../screens/cart/ShipTo';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -261,6 +262,13 @@ const CartStackNavigation = () => {
         component={Cart}
         options={{
           headerTitle: 'Your Cart',
+        }}
+      />
+      <CartStackNavigator.Screen
+        name='shipTo'
+        component={ShipTo}
+        options={{
+          headerTitle: 'Ship To',
         }}
       />
     </CartStackNavigator.Navigator>

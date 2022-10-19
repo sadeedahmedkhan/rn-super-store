@@ -85,7 +85,7 @@ const Cart = (props) => {
               marginBottom: 15,
             }}
           >
-            <Text style={styles.bodyNormalGrey}>Items (2)</Text>
+            <Text style={styles.bodyNormalGrey}>Items (3)</Text>
             <Text style={styles.bodyNormalDark}>$598.86</Text>
           </View>
           <View
@@ -126,7 +126,12 @@ const Cart = (props) => {
             <Text style={styles.h6Blue}>$766.86</Text>
           </View>
         </View>
-        <ButtonPrimary title='Check Out' />
+        <ButtonPrimary
+          title='Check Out'
+          onPressHandler={() => {
+            navigation.navigate('shipTo');
+          }}
+        />
       </ScrollView>
     </View>
   );
