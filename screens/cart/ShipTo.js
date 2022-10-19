@@ -53,7 +53,12 @@ const ShipTo = (props) => {
           </View>
         ))}
         <View>
-          <ButtonPrimary title='Next' />
+          <ButtonPrimary
+            title='Next'
+            onPressHandler={() => {
+              navigation.navigate('paymentMethod');
+            }}
+          />
         </View>
       </ScrollView>
     </View>
