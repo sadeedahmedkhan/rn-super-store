@@ -13,15 +13,13 @@ const AddressItem = (props) => {
       ]}
     >
       <View style={{ marginBottom: 15 }}>
-        <Text style={styles.h5Dark}>Priscekila</Text>
+        <Text style={styles.h5Dark}>{props.name}</Text>
       </View>
       <View style={{ marginBottom: 15 }}>
-        <Text style={styles.bodyNormalGrey}>
-          3711 Spring Hill Rd undefined Tallahassee, Nevada 52874 United States
-        </Text>
+        <Text style={styles.bodyNormalGrey}>{props.address}</Text>
       </View>
       <View style={{ marginBottom: 15 }}>
-        <Text style={styles.bodyNormalGrey}>+99 1234567890</Text>
+        <Text style={styles.bodyNormalGrey}>{props.phone}</Text>
       </View>
       <View
         style={{

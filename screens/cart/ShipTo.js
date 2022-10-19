@@ -44,7 +44,12 @@ const ShipTo = (props) => {
       <ScrollView contentContainerStyle={{ padding: 15, flexGrow: 1 }}>
         {addresses.map((item, index) => (
           <View key={index} style={{ marginBottom: 15 }}>
-            <AddressItem {...item} selected={index === 0 ? true : false} />
+            <AddressItem
+              name={item.name}
+              address={item.address}
+              phone={item.phone}
+              selected={index === 0 ? true : false}
+            />
           </View>
         ))}
         <View>
