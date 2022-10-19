@@ -23,6 +23,7 @@ import NotificationActivity from './../screens/notification/NotificationActivity
 import ShipTo from './../screens/cart/ShipTo';
 import PaymentMethod from './../screens/cart/PaymentMethod';
 import ChooseCard from './../screens/cart/ChooseCard';
+import PaymentSuccess from './../screens/cart/PaymentSuccess';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -285,6 +286,13 @@ const CartStackNavigation = () => {
         component={ChooseCard}
         options={{
           headerTitle: 'Choose Card',
+        }}
+      />
+      <CartStackNavigator.Screen
+        name='paymentSuccess'
+        component={PaymentSuccess}
+        options={{
+          headerShown: false,
         }}
       />
     </CartStackNavigator.Navigator>
