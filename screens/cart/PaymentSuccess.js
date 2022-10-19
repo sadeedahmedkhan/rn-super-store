@@ -4,7 +4,8 @@ import { Image } from '@rneui/themed';
 import COLORS from '../../constants/colors';
 import ButtonPrimary from '../../components/ButtonPrimary';
 
-const PaymentSuccess = () => {
+const PaymentSuccess = (props) => {
+  const { navigation } = props;
   return (
     <View style={styles.container}>
       <View style={{ alignItems: 'center' }}>
@@ -27,7 +28,12 @@ const PaymentSuccess = () => {
           </Text>
         </View>
         <View style={{ width: '100%', paddingHorizontal: 15 }}>
-          <ButtonPrimary title='Back to Order' />
+          <ButtonPrimary
+            title='Back to Order'
+            onPressHandler={() => {
+              navigation.navigate('Home', { screen: 'HomeFeed' });
+            }}
+          />
         </View>
       </View>
     </View>

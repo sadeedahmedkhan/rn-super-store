@@ -303,12 +303,20 @@ const OfferStackNavigator = createNativeStackNavigator();
 
 const OfferStackNavigation = () => {
   return (
-    <OfferStackNavigator.Navigator>
+    <OfferStackNavigator.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          fontFamily: 'Poppins-Bold',
+          fontSize: 16,
+          color: COLORS.dark,
+        },
+      }}
+    >
       <OfferStackNavigator.Screen
         name='offerScreen'
         component={Offer}
         options={{
-          headerTitle: '',
+          headerTitle: 'Offer',
         }}
       />
     </OfferStackNavigator.Navigator>
