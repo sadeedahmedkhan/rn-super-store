@@ -24,6 +24,7 @@ import ShipTo from './../screens/cart/ShipTo';
 import PaymentMethod from './../screens/cart/PaymentMethod';
 import ChooseCard from './../screens/cart/ChooseCard';
 import PaymentSuccess from './../screens/cart/PaymentSuccess';
+import Profile from './../screens/account/Profile';
 
 const StackNavigator = createNativeStackNavigator();
 
@@ -327,12 +328,27 @@ const AccountStackNavigator = createNativeStackNavigator();
 
 const AccountStackNavigation = () => {
   return (
-    <AccountStackNavigator.Navigator>
+    <AccountStackNavigator.Navigator
+      screenOptions={{
+        headerTitleStyle: {
+          fontFamily: 'Poppins-Bold',
+          fontSize: 16,
+          color: COLORS.dark,
+        },
+      }}
+    >
       <AccountStackNavigator.Screen
         name='AccountScreen'
         component={Account}
         options={{
-          headerTitle: '',
+          headerTitle: 'Account',
+        }}
+      />
+      <AccountStackNavigator.Screen
+        name='profile'
+        component={Profile}
+        options={{
+          headerTitle: 'Profile',
         }}
       />
     </AccountStackNavigator.Navigator>
