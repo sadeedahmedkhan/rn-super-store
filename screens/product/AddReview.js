@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { AirbnbRating, Button, Image } from '@rneui/base';
+import * as ImagePicker from 'expo-image-picker';
 import InputField from '../../components/InputField';
 import ButtonPrimary from '../../components/ButtonPrimary';
 import COLORS from '../../constants/colors';
 
 const AddReview = (props) => {
   const [rating, setRating] = useState(4);
+  const [images, setImages] = useState([]);
+
+  const pickImage = async () => {
+    const result = await ImagePicker.launchCameraAsync({
+      allowsEditing: true,
+      quality: 0.5,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      aspect: [1, 1],
+    });
+
+    if (!result.cancelled) {
+      setImages([...images, result.uri]);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -57,7 +72,21 @@ const AddReview = (props) => {
       <View style={{ marginTop: 10 }}>
         <Text style={styles.h5dark}>Add Photo</Text>
       </View>
-      <View style={{ marginTop: 10 }}>
+      <View style={{ marginTop: 10, flexDirection: 'row' }}>
+        {images.length >= 1 &&
+          images.map((item, index) => (
+            <Image
+              key={index}
+              source={{ uri: item }}
+              style={{
+                width: 72,
+                height: 72,
+                aspectRatio: 1,
+                borderRadius: 5,
+                marginRight: 10,
+              }}
+            />
+          ))}
         <Button
           icon={{
             name: 'add',
@@ -69,6 +98,7 @@ const AddReview = (props) => {
             height: 72,
             borderRadius: 5,
           }}
+          onPress={pickImage}
         />
       </View>
       <View style={{ marginTop: 20 }}>
