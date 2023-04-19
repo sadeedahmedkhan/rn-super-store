@@ -9,7 +9,9 @@ Download or clone the repository and run `npm install`
 
 ### Usage
 Start the app using command `npm start`
+
 *OR*
+
 Download and install Expo Go app on your phone from [here](https://expo.dev/client "here") and go to the link below to run the application on your device.
 
 *exp://exp.host/@sadeedahmedkhan/super-store?release-channel=default*
