@@ -49,5 +49,5 @@ Download and install Expo Go app on your phone from [here](https://expo.dev/clie
 ------------
 
 ### Acknowledgements
-- UI design inspiration is take from [here](https://www.figma.com/community/file/1034673430407061199 "here")
+- UI design inspiration is taken from [here](https://www.figma.com/community/file/1034673430407061199 "here")
 - Design by Manuel Juarez.
